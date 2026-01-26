@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button"
 const navLinks = [
   { href: "#features", label: "Features" },
   { href: "#characters", label: "Kämpfer" },
+  { href: "#arenas", label: "Arenas" },
   { href: "#gameplay", label: "Gameplay" },
-  { href: "#funding", label: "Goals" },
+  { href: "#invest", label: "Investoren" },
   { href: "#rewards", label: "Rewards" },
   { href: "#faq", label: "FAQ" },
 ]

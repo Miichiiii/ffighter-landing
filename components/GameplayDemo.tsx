@@ -60,16 +60,13 @@ export function GameplayDemo() {
             
             {/* Screen */}
             <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
-              {/* Placeholder Video Area */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#001e3c] to-[#000a14] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl sm:text-8xl font-mono gradient-text font-bold mb-4 float">
-                    FIGHT!
-                  </div>
-                  <p className="text-white/50 font-mono text-sm">
-                    Gameplay Video
-                  </p>
-                </div>
+              {/* Gameplay GIF */}
+              <div className="absolute inset-0">
+                <img 
+                  src="/images/stages/gif.gif" 
+                  alt="Gameplay Demo"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Scanlines */}

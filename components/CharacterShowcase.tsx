@@ -62,57 +62,63 @@ const modalVariants = {
 const fighters = [
   {
     id: 1,
-    name: "MR FURZ",
-    image: "/images/fighters/1.png",
-    description: "Ausgewogene Mischung aus Lautstärke und Intensität",
-    special: "Pümpel-Pracht-Schlag",
-    stats: { strength: 70, speed: 75, defense: 70, special: 80 },
-    backstory: "Der Allrounder unter den Kämpfern. Mr Furz hat durch jahrelanges Training eine perfekte Balance zwischen allen Fähigkeiten erreicht.",
+    name: "DER FURZKÖNIG",
+    image: "/images/fighters/1-king-stand-removebg-preview.png",
+    actionImage: "/images/fighters/1-king-kick-removebg-preview.png",
+    description: "Regiert das Reich der Winde mit eiserner Darmkraft",
+    special: "Donnernder Duft-Hammer",
+    stats: { strength: 95, speed: 50, defense: 85, special: 100 },
+    backstory: "Der mächtigste aller Furz-Kämpfer. Seine Attacken sind legendär und in der gesamten Arena gefürchtet. Niemand wagt es, seinem Thron zu nahe zu kommen.",
   },
   {
     id: 2,
-    name: "DER FURZKÖNIG",
-    image: "/images/fighters/2-derf.png",
-    description: "Meister der stinkenden Kampfkunst mit legendärem Donner",
-    special: "Donnernder Duft-Hammer",
-    stats: { strength: 95, speed: 50, defense: 85, special: 100 },
-    backstory: "Regiert das Reich der Winde mit eiserner... naja, mit eiserner Darmkraft. Seine Attacken sind legendär und gefürchtet.",
+    name: "MRS. STINKY",
+    image: "/images/fighters/2-mrs-stand-removebg-preview.png",
+    actionImage: "/images/fighters/2-mrs-kick-removebg-preview.png",
+    description: "Präzise Gaswolken mit tödlicher Treffsicherheit",
+    special: "Sonic Stink-Welle",
+    stats: { strength: 75, speed: 90, defense: 60, special: 95 },
+    backstory: "Die Königin der Präzision. Ihre gezielten Angriffe treffen immer ihr Ziel und hinterlassen bleibenden Eindruck bei jedem Gegner.",
   },
   {
     id: 3,
     name: "DETEKTIV DUFTNOTE",
     image: "/images/fighters/3-derdete.png",
+    actionImage: "/images/fighters/3-derd-attac-removebg-preview.png",
     description: "Mysteriöse Gasmischungen aus geheimer Rezeptur",
     special: "Drei-Gänge-Geruchs-Menü",
     stats: { strength: 60, speed: 85, defense: 65, special: 90 },
-    backstory: "Ein Meister der Tarnung und Überraschung. Seine geheimen Rezepturen machen jeden Kampf unberechenbar.",
+    backstory: "Ein Meister der Tarnung und Überraschung. Seine geheimen Rezepturen machen jeden Kampf unberechenbar und gefährlich.",
   },
   {
     id: 4,
     name: "DON FARTY",
-    image: "/images/fighters/4-don.png",
+    image: "/images/fighters/4-op-steh-removebg-preview.png",
+    actionImage: "/images/fighters/4-op-kick-removebg-preview.png",
     description: "Blitzschnelle Flatulenzen im Sekundentakt",
     special: "Turbo-Pups Combo",
     stats: { strength: 65, speed: 100, defense: 55, special: 85 },
-    backstory: "Der Pate der Flatulenzen. Seine blitzschnellen Combos lassen dem Gegner keine Chance zur Reaktion.",
+    backstory: "Der Pate der Flatulenzen. Seine blitzschnellen Combos lassen dem Gegner keine Chance zur Reaktion. Schnell, präzise, tödlich.",
   },
   {
     id: 5,
-    name: "DR DAMPF",
-    image: "/images/fighters/5-derdr.png",
-    description: "Unzerbrechlicher Gestank mit eiserner Darmkraft",
+    name: "DR. DAMPF",
+    image: "/images/fighters/5-dr.png",
+    actionImage: "/images/fighters/5-mr-kick-removebg-preview.png",
+    description: "Unzerbrechlicher Gestank mit wissenschaftlicher Präzision",
     special: "Eiserne-Därme-Defense",
     stats: { strength: 80, speed: 45, defense: 100, special: 75 },
     backstory: "Ein Wissenschaftler, der sich selbst zum ultimativen Verteidiger transformiert hat. Sein Gestank ist praktisch undurchdringlich.",
   },
   {
     id: 6,
-    name: "MRS. STINKY",
-    image: "/images/fighters/6-mrs.png",
-    description: "Präzise Gaswolken mit tödlicher Treffsicherheit",
-    special: "Sonic Stink-Welle",
-    stats: { strength: 75, speed: 90, defense: 60, special: 95 },
-    backstory: "Die Königin der Präzision. Ihre gezielten Angriffe treffen immer ihr Ziel und hinterlassen bleibenden Eindruck.",
+    name: "DOK STINK",
+    image: "/images/fighters/6-dok-stand-removebg-preview.png",
+    actionImage: "/images/fighters/6-dok-kick-removebg-preview.png",
+    description: "Ausgewogene Mischung aus Lautstärke und Intensität",
+    special: "Pümpel-Pracht-Schlag",
+    stats: { strength: 70, speed: 75, defense: 70, special: 80 },
+    backstory: "Der Allrounder unter den Kämpfern. Dok Stink hat durch jahrelanges Training eine perfekte Balance zwischen allen Fähigkeiten erreicht.",
   },
 ]
 
@@ -187,9 +193,11 @@ export function CharacterShowcase() {
               {/* Character Image Placeholder */}
               <div className="relative aspect-square mb-4 rounded-lg bg-gradient-to-br from-[#001e3c] to-[#000a14] overflow-hidden border-2 border-[#ffd700]/30 group-hover:border-[#ffd700] transition-colors pixel-border">
                 <div className="absolute inset-0 flex items-center justify-center pixelated">
-                  <div className="text-6xl sm:text-8xl font-mono gradient-text font-bold opacity-30">
-                    {fighter.id}
-                  </div>
+                  <img 
+                    src={fighter.image} 
+                    alt={fighter.name}
+                    className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
                 {/* CRT Glow Effect on Hover */}
                 <motion.div
@@ -253,9 +261,11 @@ export function CharacterShowcase() {
                   <div className="space-y-4">
                     <div className="relative aspect-square rounded-xl bg-gradient-to-br from-[#001e3c] to-[#000a14] overflow-hidden border-2 border-[#ffd700]">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-8xl font-mono gradient-text font-bold">
-                          {selectedFighter.id}
-                        </div>
+                        <img 
+                          src={selectedFighter.actionImage || selectedFighter.image} 
+                          alt={selectedFighter.name}
+                          className="w-full h-full object-contain p-4"
+                        />
                       </div>
                       <div className="absolute inset-0 scanlines opacity-30" />
                     </div>

@@ -1,15 +1,8 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
 import { Press_Start_2P } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const nineteenNinetySeven = localFont({
-  src: '../public/fonts/NineteenNinetySeven.ttf',
-  variable: '--font-retro',
-  display: 'swap',
-})
 
 const pressStart2P = Press_Start_2P({
   weight: '400',
@@ -48,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className="scroll-smooth">
-      <body className={`${nineteenNinetySeven.variable} ${pressStart2P.variable} font-sans antialiased`}>
+      <body className={`${pressStart2P.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

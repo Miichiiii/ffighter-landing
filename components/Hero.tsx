@@ -90,6 +90,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={isGlitching ? "glitch-effect" : ""}
         >
+          {/* Game Logo */}
+          <img 
+            src="/images/FF-logo.png" 
+            alt="Fart Fighter Logo" 
+            className="w-64 sm:w-80 md:w-96 lg:w-[450px] mx-auto mb-6 drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+          />
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-mono font-bold mb-4 tracking-tight">
             <span className="gradient-text retro-shadow">FART</span>
             <br />
@@ -112,11 +118,28 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-base sm:text-lg text-white/70 font-mono mb-12 max-w-2xl mx-auto"
+          className="text-base sm:text-lg text-white/70 font-mono mb-8 max-w-2xl mx-auto"
         >
           Ein humorvolles 2D-Kampfspiel mit 6 einzigartigen Furz-Kämpfern, 
           Retro-Pixel-Art und epischen Special Moves
         </motion.p>
+
+        {/* Game Preview GIF */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="mb-12 relative inline-block"
+        >
+          <div className="relative rounded-xl overflow-hidden border-4 border-[#ffd700]/50 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
+            <img 
+              src="/images/intro.gif" 
+              alt="Fart Fighter Gameplay" 
+              className="w-full max-w-lg mx-auto"
+            />
+            <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
+          </div>
+        </motion.div>
 
         {/* CTA Button */}
         <motion.div
