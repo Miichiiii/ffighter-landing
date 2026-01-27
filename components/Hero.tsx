@@ -1,60 +1,65 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, useAnimation } from "framer-motion"
-import { ChevronDown, Rocket } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { ChevronDown, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
-  const [isGlitching, setIsGlitching] = useState(false)
-  const [isShaking, setIsShaking] = useState(false)
-  const controls = useAnimation()
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isGlitching, setIsGlitching] = useState(false);
+  const [isShaking, setIsShaking] = useState(false);
+  const controls = useAnimation();
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const glitchInterval = setInterval(() => {
-      setIsGlitching(true)
-      setTimeout(() => setIsGlitching(false), 300)
-    }, Math.random() * 4000 + 2000)
+    const glitchInterval = setInterval(
+      () => {
+        setIsGlitching(true);
+        setTimeout(() => setIsGlitching(false), 300);
+      },
+      Math.random() * 4000 + 2000,
+    );
 
-    return () => clearInterval(glitchInterval)
-  }, [])
+    return () => clearInterval(glitchInterval);
+  }, []);
 
   const handleCtaClick = () => {
     // Trigger screen shake
-    setIsShaking(true)
-    
+    setIsShaking(true);
+
     // Animate with Framer Motion
     controls.start({
       x: [0, -5, 5, -3, 3, -2, 2, 0],
       y: [0, -3, 3, -2, 2, -1, 1, 0],
-      transition: { duration: 0.4 }
-    })
+      transition: { duration: 0.4 },
+    });
 
     setTimeout(() => {
-      setIsShaking(false)
-      document.getElementById('rewards')?.scrollIntoView({ behavior: 'smooth' })
-    }, 400)
-  }
+      setIsShaking(false);
+      document
+        .getElementById("rewards")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 400);
+  };
 
   return (
-    <motion.section 
+    <motion.section
       ref={sectionRef}
       animate={controls}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${isShaking ? 'screen-shake' : ''}`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${isShaking ? "screen-shake" : ""}`}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#001428] via-[#000a14] to-black" />
-      
+
       {/* Animated Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `
             linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       />
 
@@ -64,9 +69,13 @@ export function Hero() {
           <motion.div
             key={i}
             className="absolute w-2 h-2 rounded-full bg-[#ffd700]/30"
-            initial={{ 
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 1000),
+              y:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerHeight : 800),
             }}
             animate={{
               y: [null, -100],
@@ -90,12 +99,13 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={isGlitching ? "glitch-effect" : ""}
         >
-          {/* Game Logo */}
-          <img 
-            src="/images/FF-logo.png" 
-            alt="Fart Fighter Logo" 
-            className="w-64 sm:w-80 md:w-96 lg:w-[450px] mx-auto mb-6 drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+          {/* Placeholder für das Logo */}
+          {/* Unsichtbarer Platzhalter für das Logo */}
+          <div
+            className="mx-auto mb-4 w-32 h-32"
+            style={{ visibility: "hidden" }}
           />
+          {/* Game Logo */}
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-mono font-bold mb-4 tracking-tight">
             <span className="gradient-text retro-shadow">FART</span>
             <br />
@@ -120,7 +130,7 @@ export function Hero() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="text-base sm:text-lg text-white/70 font-mono mb-8 max-w-2xl mx-auto"
         >
-          Ein humorvolles 2D-Kampfspiel mit 6 einzigartigen Furz-Kämpfern, 
+          Ein humorvolles 2D-Kampfspiel mit 6 einzigartigen Furz-Kämpfern,
           Retro-Pixel-Art und epischen Special Moves
         </motion.p>
 
@@ -132,9 +142,9 @@ export function Hero() {
           className="mb-12 relative inline-block"
         >
           <div className="relative rounded-xl overflow-hidden border-4 border-[#ffd700]/50 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
-            <img 
-              src="/images/intro.gif" 
-              alt="Fart Fighter Gameplay" 
+            <img
+              src="/images/intro.gif"
+              alt="Fart Fighter Gameplay"
               className="w-full max-w-lg mx-auto"
             />
             <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
@@ -158,6 +168,24 @@ export function Hero() {
           </Button>
         </motion.div>
 
+        {/* Demo Spielen Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+          className="mt-4"
+        >
+          <Button
+            size="lg"
+            className="relative text-lg sm:text-xl md:text-2xl px-8 sm:px-12 py-6 sm:py-8 font-mono bg-gradient-to-r from-[#ffd700] via-[#fff3b0] to-[#ffd700] hover:from-[#ffec80] hover:via-[#ffd700] hover:to-[#ffec80] text-black border-0 rounded-lg pulse-glow transition-all duration-300 hover:scale-105 shadow-lg"
+            onClick={() =>
+              window.open("https://fighter-game.medvidov.com", "_blank")
+            }
+          >
+            Demo Spielen
+          </Button>
+        </motion.div>
+
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -166,15 +194,21 @@ export function Hero() {
           className="flex flex-wrap justify-center gap-6 sm:gap-12 mt-12"
         >
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">6</div>
+            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
+              6
+            </div>
             <div className="text-sm text-white/60 font-mono">KÄMPFER</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">3</div>
+            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
+              3
+            </div>
             <div className="text-sm text-white/60 font-mono">ARENAS</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">100%</div>
+            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
+              100%
+            </div>
             <div className="text-sm text-white/60 font-mono">FURZ-POWER</div>
           </div>
         </motion.div>
@@ -188,7 +222,11 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <button
-          onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() =>
+            document
+              .getElementById("features")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
           className="flex flex-col items-center text-[#ffd700]/70 hover:text-[#ffd700] transition-colors"
           aria-label="Scroll down"
         >
@@ -197,5 +235,5 @@ export function Hero() {
         </button>
       </motion.div>
     </motion.section>
-  )
+  );
 }

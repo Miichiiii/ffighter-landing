@@ -1,14 +1,23 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { TrendingUp, Users, Gamepad2, Globe, Smartphone, Zap, Target, Award } from "lucide-react"
+import { motion } from "framer-motion";
+import {
+  TrendingUp,
+  Users,
+  Gamepad2,
+  Globe,
+  Smartphone,
+  Zap,
+  Target,
+  Award,
+} from "lucide-react";
 
 const stats = [
   { value: "€2.4B", label: "Mobile Gaming Markt DE", icon: TrendingUp },
   { value: "25M+", label: "Telegram Gaming Users", icon: Users },
   { value: "6", label: "Einzigartige Kämpfer", icon: Gamepad2 },
   { value: "∞", label: "Spaß-Potenzial", icon: Zap },
-]
+];
 
 const advantages = [
   {
@@ -24,14 +33,16 @@ const advantages = [
   {
     icon: Target,
     title: "VIRALES POTENTIAL",
-    description: "Humor-basiertes Gameplay für maximale Social-Media Reichweite",
+    description:
+      "Humor-basiertes Gameplay für maximale Social-Media Reichweite",
   },
   {
     icon: Award,
     title: "RETRO-APPEAL",
-    description: "Nostalgie trifft moderne Technik - breite Zielgruppe von 18-45",
+    description:
+      "Nostalgie trifft moderne Technik - breite Zielgruppe von 18-45",
   },
-]
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,7 +52,7 @@ const containerVariants = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -52,14 +63,14 @@ const itemVariants = {
       duration: 0.5,
     },
   },
-}
+};
 
 export function InvestorSection() {
   return (
     <section id="invest" className="relative py-24 px-4">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#001428]/50 to-transparent" />
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
@@ -70,13 +81,16 @@ export function InvestorSection() {
           className="text-center mb-16"
         >
           <div className="inline-block px-4 py-2 rounded-full bg-[#ffd700]/10 border border-[#ffd700]/30 mb-6">
-            <span className="text-[#ffd700] font-mono text-sm">💼 FÜR INVESTOREN</span>
+            <span className="text-[#ffd700] font-mono text-sm">
+              💼 FÜR INVESTOREN
+            </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-mono font-bold gradient-text retro-shadow mb-4">
             WARUM FART FIGHTER?
           </h2>
           <p className="text-lg sm:text-xl text-white/70 font-mono max-w-3xl mx-auto">
-            Ein einzigartiges Spielkonzept mit enormem Marktpotenzial im wachsenden Mobile-Gaming Sektor
+            Ein einzigartiges Spielkonzept mit enormem Marktpotenzial im
+            wachsenden Mobile-Gaming Sektor
           </p>
         </motion.div>
 
@@ -150,17 +164,18 @@ export function InvestorSection() {
               WERDE TEIL DER REVOLUTION
             </h3>
             <p className="text-white/70 font-mono max-w-2xl mx-auto mb-8">
-              Investiere jetzt in Fart Fighter und profitiere vom explosiven Wachstum 
-              des Mobile Gaming Marktes. Early-Bird Investoren erhalten exklusive Vorteile.
+              Investiere jetzt in Fart Fighter und profitiere vom explosiven
+              Wachstum des Mobile Gaming Marktes. Early-Bird Investoren erhalten
+              exklusive Vorteile.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="#rewards"
                 className="inline-flex items-center justify-center px-8 py-4 font-mono text-lg bg-gradient-to-r from-[#ffd700] to-[#ff8c00] text-black rounded-lg hover:scale-105 transition-transform duration-300 font-bold"
               >
                 🚀 JETZT INVESTIEREN
               </a>
-              <a 
+              <a
                 href="mailto:invest@fartfighter.game"
                 className="inline-flex items-center justify-center px-8 py-4 font-mono text-lg border-2 border-[#ffd700] text-[#ffd700] rounded-lg hover:bg-[#ffd700]/10 transition-colors duration-300"
               >
@@ -171,5 +186,5 @@ export function InvestorSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

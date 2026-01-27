@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Rocket } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -13,25 +13,25 @@ const navLinks = [
   { href: "#invest", label: "Investoren" },
   { href: "#rewards", label: "Rewards" },
   { href: "#faq", label: "FAQ" },
-]
+];
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    element?.scrollIntoView({ behavior: "smooth" })
-    setIsMobileMenuOpen(false)
-  }
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -82,7 +82,11 @@ export function Navigation() {
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </Button>
         </div>
       </motion.header>
@@ -128,5 +132,5 @@ export function Navigation() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

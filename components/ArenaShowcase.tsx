@@ -1,35 +1,42 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { MapPin, Sparkles } from "lucide-react"
+import { motion } from "framer-motion";
+import { MapPin, Sparkles } from "lucide-react";
 
 const stages = [
   {
     id: 1,
     name: "HINTERHOF ARENA",
     image: "/images/stages/stage-1.png",
-    description: "Der klassische Kampfplatz - Mülltonnen, Graffiti und pure Street-Vibes",
+    description:
+      "Der klassische Kampfplatz - Mülltonnen, Graffiti und pure Street-Vibes",
   },
   {
     id: 2,
     name: "NEON CITY",
     image: "/images/stages/stage-2.png",
-    description: "Leuchtende Skyline und pulsierende Beats in der Cyberpunk-Metropole",
+    description:
+      "Leuchtende Skyline und pulsierende Beats in der Cyberpunk-Metropole",
   },
   {
     id: 3,
     name: "ARENA INFERNO",
     image: "/images/stages/stage3.png",
-    description: "Die ultimative Kampfarena mit loderndem Feuer und epischer Atmosphäre",
+    description:
+      "Die ultimative Kampfarena mit loderndem Feuer und epischer Atmosphäre",
   },
-]
+];
 
 const items = [
-  { name: "Fass", image: "/images/items/barrel.png", effect: "Explosiver Schaden" },
+  {
+    name: "Fass",
+    image: "/images/items/barrel.png",
+    effect: "Explosiver Schaden",
+  },
   { name: "Flasche", image: "/images/items/bottle.png", effect: "Wurfattacke" },
   { name: "Stuhl", image: "/images/items/chair.png", effect: "Schwerer Hieb" },
   { name: "Stein", image: "/images/items/rock.png", effect: "Fernkampf" },
-]
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -39,7 +46,7 @@ const containerVariants = {
       staggerChildren: 0.15,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -50,7 +57,7 @@ const itemVariants = {
       duration: 0.6,
     },
   },
-}
+};
 
 export function ArenaShowcase() {
   return (
@@ -89,17 +96,19 @@ export function ArenaShowcase() {
             >
               {/* Stage Image */}
               <div className="relative aspect-video overflow-hidden">
-                <img 
-                  src={stage.image} 
+                <img
+                  src={stage.image}
                   alt={stage.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-0 scanlines opacity-30" />
-                
+
                 {/* Stage Number Badge */}
                 <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-[#ffd700] flex items-center justify-center">
-                  <span className="text-black font-mono font-bold">{stage.id}</span>
+                  <span className="text-black font-mono font-bold">
+                    {stage.id}
+                  </span>
                 </div>
               </div>
 
@@ -133,7 +142,7 @@ export function ArenaShowcase() {
             <Sparkles className="w-6 h-6" />
           </h3>
           <p className="text-white/60 font-mono text-sm">
-            Nutze Items für taktische Vorteile im Kampf
+            Nutze demnächst Items für taktische Vorteile im Kampf
           </p>
         </motion.div>
 
@@ -153,18 +162,20 @@ export function ArenaShowcase() {
               className="glass rounded-xl p-4 text-center transition-all duration-300 hover:neon-glow-box"
             >
               <div className="w-16 h-16 mx-auto mb-2 rounded-lg bg-gradient-to-br from-[#001e3c] to-[#000a14] flex items-center justify-center border border-[#ffd700]/30">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.name}
                   className="w-12 h-12 object-contain"
                 />
               </div>
-              <h4 className="text-sm font-mono font-bold text-[#ffd700] mb-1">{item.name}</h4>
+              <h4 className="text-sm font-mono font-bold text-[#ffd700] mb-1">
+                {item.name}
+              </h4>
               <p className="text-xs text-[#ff8c00] font-mono">{item.effect}</p>
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

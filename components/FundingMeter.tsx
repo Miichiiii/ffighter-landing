@@ -11,9 +11,9 @@ const daysLeft = 28
 
 const stretchGoals = [
   { amount: 5000, title: "3 Neue Kämpfer", unlocked: true },
-  { amount: 10000, title: "Online Multiplayer", unlocked: false },
-  { amount: 15000, title: "Tournament Mode", unlocked: false },
-  { amount: 20000, title: "Console Ports (Switch/Steam)", unlocked: false },
+  { amount: 10000, title: "10 Neue Kampf-Items, Maps und Songs", unlocked: false },
+  { amount: 15000, title: "Online Multiplayer", unlocked: false },
+  { amount: 20000, title: "Tournament Mode", unlocked: false },
   { amount: 30000, title: "Story Mode + Cutscenes", unlocked: false },
   { amount: 50000, title: "Mobile App Release (iOS/Android)", unlocked: false },
 ]
