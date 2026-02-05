@@ -110,16 +110,29 @@ export function Hero() {
         >
           {/* Placeholder für das Logo */}
           {/* Unsichtbarer Platzhalter für das Logo */}
+          {/* Game Preview GIF */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="mb-6 relative inline-block w-full max-w-xs sm:max-w-lg mx-auto"
+        >
           <div
-            className="mx-auto mb-4 w-32 h-32"
-            style={{ visibility: "hidden" }}
-          />
-          {/* Game Logo */}
-          <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-mono font-bold mb-4 tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-            <span className="gradient-text retro-shadow">FART</span>
-            <br />
-            <span className="gradient-text retro-shadow">FIGHTER</span>
-          </h1>
+            className="relative rounded-xl overflow-hidden border-[0.1px] border-[#ffd700]/50 shadow-[0_0_40px_rgba(255,215,0,0.3)]"
+            style={{
+              width: "100%",
+              paddingBottom: "30%", // Adjust this percentage to change height (lower = more cropped top/bottom)
+              position: "relative",
+            }}
+          >
+            <img
+              src="/images/intro.gif"
+              alt="Fart Fighter Gameplay"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
+          </div>
+        </motion.div>
         </motion.div>
 
         {/* Tagline */}
@@ -139,26 +152,11 @@ export function Hero() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="text-xs sm:text-lg text-white font-mono mb-6 sm:mb-8 max-w-xs sm:max-w-xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
         >
-          Ein humorvolles 2D-Kampfspiel mit 6 einzigartigen Furz-Kämpfern,
-          Retro-Pixel-Art und epischen Special Moves
+          Ein humorvolles 2D-Kampfspiel noch mitten in der Entwicklung. <br />
+          Alles, was du siehst, ist Work-in-Progress.
         </motion.p>
 
-        {/* Game Preview GIF */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="mb-12 relative inline-block"
-        >
-          <div className="relative rounded-xl overflow-hidden border-4 border-[#ffd700]/50 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
-            <img
-              src="/images/intro.gif"
-              alt="Fart Fighter Gameplay"
-              className="w-full max-w-xs sm:max-w-lg mx-auto"
-            />
-            <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
-          </div>
-        </motion.div>
+        
 
         {/* CTA Buttons */}
         <motion.div

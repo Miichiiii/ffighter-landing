@@ -6,44 +6,44 @@ import { MapPin, Sparkles } from "lucide-react";
 const stages = [
   {
     id: 1,
-    name: "HINTERHOF ARENA",
+    name: "SCHUL ARENA",
     image: "/images/stages/stage-1.png",
     description:
-      "Der klassische Kampfplatz - Mülltonnen, Graffiti und pure Street-Vibes",
+      "Der klassische Kampfplatz",
   },
   {
     id: 2,
-    name: "NEON CITY",
+    name: "OLD CITY",
     image: "/images/stages/stage-2.png",
     description:
-      "Leuchtende Skyline und pulsierende Beats in der Cyberpunk-Metropole",
+      "Pulsierende Beats in der Cyberpunk-Metropole",
   },
   {
     id: 3,
-    name: "ARENA INFERNO",
+    name: "BEACH INFERNO",
     image: "/images/stages/stage3.png",
     description:
-      "Die ultimative Kampfarena mit loderndem Feuer und epischer Atmosphäre",
+      "Die ultimative Kampfarena und epischer Atmosphäre",
   },
   {
     id: 4,
-    name: "STADTVIERTEL CHAOS",
+    name: "BURG FURZ",
     image: "/sortiert/stage1.png",
     description:
-      "Ein wildes Stadtviertel voller Action und unvorhersehbarer Gefahren",
+      "Eine wilde Burg voller Action und unvorhersehbarer Gefahren",
   },
   {
     id: 5,
-    name: "TECHNO TEMPEL",
+    name: "FURZ TEMPEL",
     image: "/sortiert/stage2.png",
     description:
-      "Ein futuristischer Tempel mit blinkenden Lichtern und elektronischer Musik",
+      "Ein futuristischer Tempel mit blinkenden Lichtern und furzender Musik",
   },
   {
     id: 6,
-    name: "MYSTISCHE HÖHLE",
+    name: "MYSTISCHES HAUS",
     image: "/sortiert/stage6.png",
-    description: "Eine geheimnisvolle Höhle voller Magie und uralter Kräfte",
+    description: "Eine geheimnisvolles Haus voller Magie und uralter Kräfte",
   },
 ];
 

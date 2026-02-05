@@ -63,7 +63,7 @@ const fighters = [
   {
     id: 1,
     name: "DER FURZKÖNIG",
-    image: "/images/fighters/1-king-stand-removebg-preview.png",
+    image: "/images/fighters/2-derf.png",
     actionImage: "/images/fighters/1-king-kick-removebg-preview.png",
     description: "Regiert das Reich der Winde mit eiserner Darmkraft",
     special: "Donnernder Duft-Hammer",
@@ -74,7 +74,7 @@ const fighters = [
   {
     id: 2,
     name: "MRS. STINKY",
-    image: "/images/fighters/2-mrs-stand-removebg-preview.png",
+    image: "/images/fighters/6-mrs.png",
     actionImage: "/images/fighters/2-mrs-kick-removebg-preview.png",
     description: "Präzise Gaswolken mit tödlicher Treffsicherheit",
     special: "Sonic Stink-Welle",
@@ -96,7 +96,7 @@ const fighters = [
   {
     id: 4,
     name: "DON FARTY",
-    image: "/images/fighters/4-op-steh-removebg-preview.png",
+    image: "/images/fighters/4-don.png",
     actionImage: "/images/fighters/4-op-kick-removebg-preview.png",
     description: "Blitzschnelle Flatulenzen im Sekundentakt",
     special: "Turbo-Pups Combo",
@@ -107,8 +107,8 @@ const fighters = [
   {
     id: 5,
     name: "DR. DAMPF",
-    image: "/images/fighters/5-dr.png",
-    actionImage: "/images/fighters/5-mr-kick-removebg-preview.png",
+    image: "/images/fighters/5-derdr.png",
+    actionImage: "/images/fighters/6-dok-duck-removebg-preview.png",
     description: "Unzerbrechlicher Gestank mit wissenschaftlicher Präzision",
     special: "Eiserne-Därme-Defense",
     stats: { strength: 80, speed: 45, defense: 100, special: 75 },
@@ -117,8 +117,8 @@ const fighters = [
   },
   {
     id: 6,
-    name: "DOK STINK",
-    image: "/images/fighters/6-dok-stand-removebg-preview.png",
+    name: "MR. Furz",
+    image: "/images/fighters/1.png",
     actionImage: "/images/fighters/6-dok-kick-removebg-preview.png",
     description: "Ausgewogene Mischung aus Lautstärke und Intensität",
     special: "Pümpel-Pracht-Schlag",
