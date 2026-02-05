@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import { Users, Clock, Target, CheckCircle2, Lock } from "lucide-react"
 
 const fundingGoal = 20000
-const currentFunding = 8750
-const backers = 234
-const daysLeft = 28
+const currentFunding = 50
+const backers = 5
+const daysLeft = 288
 
 const stretchGoals = [
   { amount: 5000, title: "3 Neue Kämpfer", unlocked: true },

@@ -42,11 +42,30 @@ export function Hero() {
     }, 400);
   };
 
+  // Particle state for hydration-safe rendering
+  const [particles, setParticles] = useState<
+    { x: number; y: number; duration: number; delay: number }[]
+  >([]);
+  useEffect(() => {
+    // Only run on client
+    const count = 20;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    setParticles(
+      Array.from({ length: count }).map(() => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 2,
+      })),
+    );
+  }, []);
+
   return (
     <motion.section
       ref={sectionRef}
       animate={controls}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${isShaking ? "screen-shake" : ""}`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden ${isShaking ? "screen-shake" : ""} px-2 sm:px-4`}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#001428] via-[#000a14] to-black" />
@@ -63,35 +82,25 @@ export function Hero() {
         }}
       />
 
-      {/* Floating Particles */}
+      {/* Floating Particles (hydration-safe) */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 rounded-full bg-[#ffd700]/30"
-            initial={{
-              x:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1000),
-              y:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerHeight : 800),
-            }}
-            animate={{
-              y: [null, -100],
-              opacity: [0.3, 0.8, 0.3],
-            }}
+            initial={{ x: p.x, y: p.y }}
+            animate={{ y: [p.y, -100], opacity: [0.3, 0.8, 0.3] }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: p.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: p.delay,
             }}
           />
         ))}
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-1.5 sm:px-4 max-w-xs sm:max-w-4xl md:max-w-5xl mx-auto">
         {/* Logo/Title */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -106,7 +115,7 @@ export function Hero() {
             style={{ visibility: "hidden" }}
           />
           {/* Game Logo */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-mono font-bold mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-mono font-bold mb-4 tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
             <span className="gradient-text retro-shadow">FART</span>
             <br />
             <span className="gradient-text retro-shadow">FIGHTER</span>
@@ -118,7 +127,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-xl sm:text-2xl md:text-3xl text-[#ffd700] font-mono mb-8 retro-shadow"
+          className="text-base sm:text-2xl md:text-3xl text-yellow-400 font-mono mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
         >
           Der ultimative Furz-Kampf beginnt!
         </motion.p>
@@ -128,7 +137,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-base sm:text-lg text-white/70 font-mono mb-8 max-w-2xl mx-auto"
+          className="text-xs sm:text-lg text-white font-mono mb-6 sm:mb-8 max-w-xs sm:max-w-xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
         >
           Ein humorvolles 2D-Kampfspiel mit 6 einzigartigen Furz-Kämpfern,
           Retro-Pixel-Art und epischen Special Moves
@@ -145,39 +154,32 @@ export function Hero() {
             <img
               src="/images/intro.gif"
               alt="Fart Fighter Gameplay"
-              className="w-full max-w-lg mx-auto"
+              className="w-full max-w-xs sm:max-w-lg mx-auto"
             />
             <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
           </div>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
+          className="flex flex-col items-center gap-2 sm:gap-4"
         >
           <Button
             size="lg"
-            className="relative text-lg sm:text-xl md:text-2xl px-8 sm:px-12 py-6 sm:py-8 font-mono bg-gradient-to-r from-[#ff6500] via-[#ff8c00] to-[#ff6500] hover:from-[#ff4500] hover:via-[#ff6500] hover:to-[#ff4500] text-black border-0 rounded-lg pulse-glow transition-all duration-300 hover:scale-105"
+            className="relative text-base sm:text-xl md:text-2xl px-4 sm:px-12 py-3 sm:py-8 font-mono bg-gradient-to-r from-[#ff6500] via-[#ff8c00] to-[#ff6500] hover:from-[#ff4500] hover:via-[#ff6500] hover:to-[#ff4500] text-black border-0 rounded-lg pulse-glow transition-all duration-300 hover:scale-105"
             onClick={handleCtaClick}
           >
-            <Rocket className="mr-2 h-6 w-6" />
+            <Rocket className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
             JETZT UNTERSTÜTZEN
-            <Rocket className="ml-2 h-6 w-6" />
+            <Rocket className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
           </Button>
-        </motion.div>
 
-        {/* Demo Spielen Button */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, duration: 0.5 }}
-          className="mt-4"
-        >
           <Button
             size="lg"
-            className="relative text-lg sm:text-xl md:text-2xl px-8 sm:px-12 py-6 sm:py-8 font-mono bg-gradient-to-r from-[#ffd700] via-[#fff3b0] to-[#ffd700] hover:from-[#ffec80] hover:via-[#ffd700] hover:to-[#ffec80] text-black border-0 rounded-lg pulse-glow transition-all duration-300 hover:scale-105 shadow-lg"
+            className="relative text-base sm:text-xl md:text-2xl px-4 sm:px-12 py-3 sm:py-8 font-mono bg-gradient-to-r from-[#ffd700] via-[#fff3b0] to-[#ffd700] hover:from-[#ffec80] hover:via-[#ffd700] hover:to-[#ffec80] text-black border-0 rounded-lg pulse-glow transition-all duration-300 hover:scale-105 shadow-lg"
             onClick={() =>
               window.open("https://fighter-game.medvidov.com", "_blank")
             }
@@ -191,25 +193,31 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-6 sm:gap-12 mt-12"
+          className="flex flex-wrap justify-center gap-3 sm:gap-12 mt-6 sm:mt-12"
         >
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
+            <div className="text-xl sm:text-4xl font-mono gradient-text font-bold">
               6
             </div>
-            <div className="text-sm text-white/60 font-mono">KÄMPFER</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
-              3
+            <div className="text-xs sm:text-sm text-white/60 font-mono">
+              KÄMPFER
             </div>
-            <div className="text-sm text-white/60 font-mono">ARENAS</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-mono gradient-text font-bold">
+            <div className="text-xl sm:text-4xl font-mono gradient-text font-bold">
+              6
+            </div>
+            <div className="text-xs sm:text-sm text-white/60 font-mono">
+              ARENAS
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl sm:text-4xl font-mono gradient-text font-bold">
               100%
             </div>
-            <div className="text-sm text-white/60 font-mono">FURZ-POWER</div>
+            <div className="text-xs sm:text-sm text-white/60 font-mono">
+              FURZ-POWER
+            </div>
           </div>
         </motion.div>
       </div>

@@ -1,18 +1,18 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
   /* Fart Fighter Theme - Dark Retro Arcade */
-  --background: #001428;
+  --background: #4f5c68c6;
   --foreground: #ffffff;
   --card: rgba(0, 30, 60, 0.8);
   --card-foreground: #ffffff;
   --popover: #001e3c;
   --popover-foreground: #ffffff;
   --primary: #ffd700;
-  --primary-foreground: #000000;
+  --primary-foreground: #656565;
   --secondary: #ff8c00;
   --secondary-foreground: #000000;
   --muted: rgba(255, 215, 0, 0.1);
@@ -25,7 +25,7 @@
   --input: rgba(255, 215, 0, 0.2);
   --ring: #ffd700;
   --radius: 0.5rem;
-  
+
   /* Custom Colors */
   --gold: #ffd700;
   --orange: #ffa500;
@@ -49,7 +49,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
- 
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -86,8 +86,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-retro), 'Press Start 2P', monospace;
-  --font-mono: var(--font-pixel), 'Press Start 2P', monospace;
+  --font-sans: var(--font-retro), "Press Start 2P", monospace;
+  --font-mono: var(--font-pixel), "Press Start 2P", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -132,8 +132,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Preserving existing custom background gradient */
-    background: linear-gradient(180deg, #001428 0%, #000a14 50%, #000000 100%);
+    /* Dark gray gradient background */
+    background: linear-gradient(180deg, #2a2e35 0%, #1a1d23 50%, #0f1115 100%);
     min-height: 100vh;
   }
 }
@@ -146,7 +146,8 @@
 
 /* Glitch Effect */
 @keyframes glitch {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0);
     filter: none;
   }
@@ -174,7 +175,7 @@
 
 /* Neon Glow */
 .neon-glow {
-  text-shadow: 
+  text-shadow:
     0 0 5px var(--gold),
     0 0 10px var(--gold),
     0 0 20px var(--orange),
@@ -182,16 +183,21 @@
 }
 
 .neon-glow-box {
-  box-shadow: 
+  box-shadow:
     0 0 5px var(--gold),
     0 0 10px var(--gold),
     0 0 20px var(--orange),
-    0 0 40px rgba(255, 165, 0, 0.3);
+    0 0 40px rgba(228, 219, 202, 0.743);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 50%, var(--orange-red) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gold) 0%,
+    var(--orange) 50%,
+    var(--orange-red) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -199,8 +205,8 @@
 
 /* Retro Text Shadow */
 .retro-shadow {
-  text-shadow: 
-    2px 2px 0px rgba(0, 0, 0, 0.8),
+  text-shadow:
+    2px 2px 0px rgba(89, 89, 89, 0.8),
     4px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -213,7 +219,7 @@
 
 /* Scanline Effect */
 .scanlines::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
@@ -228,11 +234,17 @@
 
 /* Pulse Animation */
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px var(--gold), 0 0 40px var(--orange);
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px var(--gold),
+      0 0 40px var(--orange);
   }
   50% {
-    box-shadow: 0 0 40px var(--gold), 0 0 80px var(--orange), 0 0 120px var(--orange-red);
+    box-shadow:
+      0 0 40px var(--gold),
+      0 0 80px var(--orange),
+      0 0 120px var(--orange-red);
   }
 }
 
@@ -242,7 +254,8 @@
 
 /* Float Animation */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -256,10 +269,13 @@
 
 /* Blink Animation */
 @keyframes blink {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     opacity: 1;
   }
-  25%, 75% {
+  25%,
+  75% {
     opacity: 0.7;
   }
 }
@@ -270,7 +286,8 @@
 
 /* Bounce Animation */
 @keyframes bounce-arrow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -309,20 +326,27 @@
 }
 
 .crt-overlay::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: 
+  background:
     linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 2px, 3px 100%;
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  background-size:
+    100% 2px,
+    3px 100%;
   pointer-events: none;
   z-index: 100;
 }
 
 /* Chromatic Aberration Text */
 .chromatic-text {
-  text-shadow: 
+  text-shadow:
     2px 0 rgba(255, 0, 0, 0.7),
     -2px 0 rgba(0, 255, 255, 0.7),
     4px 4px 0px #000000;
@@ -339,16 +363,20 @@
 
 /* Retro Segmented Health Bar */
 .health-bar-segmented {
-  background: linear-gradient(90deg, 
-    #22c55e 0%, #22c55e 33%,
-    #facc15 33%, #facc15 66%,
-    #dc2626 66%, #dc2626 100%
+  background: linear-gradient(
+    90deg,
+    #22c55e 0%,
+    #22c55e 33%,
+    #facc15 33%,
+    #facc15 66%,
+    #dc2626 66%,
+    #dc2626 100%
   );
   background-size: 100% 100%;
 }
 
 .health-bar-segments::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
@@ -363,16 +391,37 @@
 
 /* Screen Shake Animation */
 @keyframes screen-shake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  10% { transform: translate(-5px, -5px) rotate(-1deg); }
-  20% { transform: translate(5px, -3px) rotate(1deg); }
-  30% { transform: translate(-3px, 5px) rotate(0deg); }
-  40% { transform: translate(3px, 3px) rotate(1deg); }
-  50% { transform: translate(-3px, -3px) rotate(-1deg); }
-  60% { transform: translate(5px, 2px) rotate(0deg); }
-  70% { transform: translate(-5px, 3px) rotate(-1deg); }
-  80% { transform: translate(3px, -5px) rotate(1deg); }
-  90% { transform: translate(-2px, 2px) rotate(0deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-5px, -5px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(5px, -3px) rotate(1deg);
+  }
+  30% {
+    transform: translate(-3px, 5px) rotate(0deg);
+  }
+  40% {
+    transform: translate(3px, 3px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-3px, -3px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(5px, 2px) rotate(0deg);
+  }
+  70% {
+    transform: translate(-5px, 3px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(3px, -5px) rotate(1deg);
+  }
+  90% {
+    transform: translate(-2px, 2px) rotate(0deg);
+  }
 }
 
 .screen-shake {
@@ -429,7 +478,7 @@
 
 /* Enhanced Retro Shadow */
 .retro-shadow-deep {
-  text-shadow: 
+  text-shadow:
     4px 4px 0px #000000,
     6px 6px 0px rgba(0, 0, 0, 0.5);
 }
@@ -444,15 +493,20 @@
 
 /* Pixel Border */
 .pixel-border {
-  box-shadow: 
+  box-shadow:
     inset -4px -4px 0px 0px rgba(0, 0, 0, 0.5),
     inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1);
 }
 
 /* Spring Hover for Cards */
 @keyframes card-hover-bounce {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.05) rotate(1deg); }
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
 }
 
 /* Fade In Up Animation */

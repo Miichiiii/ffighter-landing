@@ -25,6 +25,26 @@ const stages = [
     description:
       "Die ultimative Kampfarena mit loderndem Feuer und epischer Atmosphäre",
   },
+  {
+    id: 4,
+    name: "STADTVIERTEL CHAOS",
+    image: "/sortiert/stage1.png",
+    description:
+      "Ein wildes Stadtviertel voller Action und unvorhersehbarer Gefahren",
+  },
+  {
+    id: 5,
+    name: "TECHNO TEMPEL",
+    image: "/sortiert/stage2.png",
+    description:
+      "Ein futuristischer Tempel mit blinkenden Lichtern und elektronischer Musik",
+  },
+  {
+    id: 6,
+    name: "MYSTISCHE HÖHLE",
+    image: "/sortiert/stage6.png",
+    description: "Eine geheimnisvolle Höhle voller Magie und uralter Kräfte",
+  },
 ];
 
 const items = [
@@ -75,7 +95,7 @@ export function ArenaShowcase() {
             KAMPF-ARENAS
           </h2>
           <p className="text-lg sm:text-xl text-white/70 font-mono max-w-2xl mx-auto">
-            3 einzigartige Schauplätze für epische Kämpfe
+            6 einzigartige Schauplätze für epische Kämpfe
           </p>
         </motion.div>
 

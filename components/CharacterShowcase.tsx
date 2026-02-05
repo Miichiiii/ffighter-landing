@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useState } from "react"
-import { motion, AnimatePresence, useAnimation } from "framer-motion"
-import { X, Zap, Shield, Gauge, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { X, Zap, Shield, Gauge, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Stagger children animation variants
 const containerVariants = {
@@ -17,7 +17,7 @@ const containerVariants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.9 },
@@ -26,25 +26,25 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 20,
     },
   },
-}
+};
 
 const modalVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     scale: 0.8,
     rotateX: -15,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     rotateX: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 25,
     },
@@ -57,7 +57,7 @@ const modalVariants = {
       duration: 0.2,
     },
   },
-}
+};
 
 const fighters = [
   {
@@ -68,7 +68,8 @@ const fighters = [
     description: "Regiert das Reich der Winde mit eiserner Darmkraft",
     special: "Donnernder Duft-Hammer",
     stats: { strength: 95, speed: 50, defense: 85, special: 100 },
-    backstory: "Der mächtigste aller Furz-Kämpfer. Seine Attacken sind legendär und in der gesamten Arena gefürchtet. Niemand wagt es, seinem Thron zu nahe zu kommen.",
+    backstory:
+      "Der mächtigste aller Furz-Kämpfer. Seine Attacken sind legendär und in der gesamten Arena gefürchtet. Niemand wagt es, seinem Thron zu nahe zu kommen.",
   },
   {
     id: 2,
@@ -78,7 +79,8 @@ const fighters = [
     description: "Präzise Gaswolken mit tödlicher Treffsicherheit",
     special: "Sonic Stink-Welle",
     stats: { strength: 75, speed: 90, defense: 60, special: 95 },
-    backstory: "Die Königin der Präzision. Ihre gezielten Angriffe treffen immer ihr Ziel und hinterlassen bleibenden Eindruck bei jedem Gegner.",
+    backstory:
+      "Die Königin der Präzision. Ihre gezielten Angriffe treffen immer ihr Ziel und hinterlassen bleibenden Eindruck bei jedem Gegner.",
   },
   {
     id: 3,
@@ -88,7 +90,8 @@ const fighters = [
     description: "Mysteriöse Gasmischungen aus geheimer Rezeptur",
     special: "Drei-Gänge-Geruchs-Menü",
     stats: { strength: 60, speed: 85, defense: 65, special: 90 },
-    backstory: "Ein Meister der Tarnung und Überraschung. Seine geheimen Rezepturen machen jeden Kampf unberechenbar und gefährlich.",
+    backstory:
+      "Ein Meister der Tarnung und Überraschung. Seine geheimen Rezepturen machen jeden Kampf unberechenbar und gefährlich.",
   },
   {
     id: 4,
@@ -98,7 +101,8 @@ const fighters = [
     description: "Blitzschnelle Flatulenzen im Sekundentakt",
     special: "Turbo-Pups Combo",
     stats: { strength: 65, speed: 100, defense: 55, special: 85 },
-    backstory: "Der Pate der Flatulenzen. Seine blitzschnellen Combos lassen dem Gegner keine Chance zur Reaktion. Schnell, präzise, tödlich.",
+    backstory:
+      "Der Pate der Flatulenzen. Seine blitzschnellen Combos lassen dem Gegner keine Chance zur Reaktion. Schnell, präzise, tödlich.",
   },
   {
     id: 5,
@@ -108,7 +112,8 @@ const fighters = [
     description: "Unzerbrechlicher Gestank mit wissenschaftlicher Präzision",
     special: "Eiserne-Därme-Defense",
     stats: { strength: 80, speed: 45, defense: 100, special: 75 },
-    backstory: "Ein Wissenschaftler, der sich selbst zum ultimativen Verteidiger transformiert hat. Sein Gestank ist praktisch undurchdringlich.",
+    backstory:
+      "Ein Wissenschaftler, der sich selbst zum ultimativen Verteidiger transformiert hat. Sein Gestank ist praktisch undurchdringlich.",
   },
   {
     id: 6,
@@ -118,11 +123,20 @@ const fighters = [
     description: "Ausgewogene Mischung aus Lautstärke und Intensität",
     special: "Pümpel-Pracht-Schlag",
     stats: { strength: 70, speed: 75, defense: 70, special: 80 },
-    backstory: "Der Allrounder unter den Kämpfern. Dok Stink hat durch jahrelanges Training eine perfekte Balance zwischen allen Fähigkeiten erreicht.",
+    backstory:
+      "Der Allrounder unter den Kämpfern. Dok Stink hat durch jahrelanges Training eine perfekte Balance zwischen allen Fähigkeiten erreicht.",
   },
-]
+];
 
-function StatBar({ label, value, icon: Icon }: { label: string; value: number; icon: React.ElementType }) {
+function StatBar({
+  label,
+  value,
+  icon: Icon,
+}: {
+  label: string;
+  value: number;
+  icon: React.ElementType;
+}) {
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-xs font-mono">
@@ -143,11 +157,13 @@ function StatBar({ label, value, icon: Icon }: { label: string; value: number; i
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
 
 export function CharacterShowcase() {
-  const [selectedFighter, setSelectedFighter] = useState<typeof fighters[0] | null>(null)
+  const [selectedFighter, setSelectedFighter] = useState<
+    (typeof fighters)[0] | null
+  >(null);
 
   return (
     <section id="characters" className="relative py-24 px-4">
@@ -164,7 +180,8 @@ export function CharacterShowcase() {
             WÄHLE DEINEN KÄMPFER
           </h2>
           <p className="text-lg sm:text-xl text-white/70 font-mono max-w-2xl mx-auto">
-            6 einzigartige Charaktere mit individuellen Fähigkeiten und Spezialattacken
+            6 einzigartige Charaktere mit individuellen Fähigkeiten und
+            Spezialattacken
           </p>
         </motion.div>
 
@@ -180,10 +197,14 @@ export function CharacterShowcase() {
             <motion.button
               key={fighter.id}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotate: 1,
-                transition: { type: "spring", stiffness: 400, damping: 10 }
+                transition: {
+                  type: "spring" as const,
+                  stiffness: 400,
+                  damping: 10,
+                },
               }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedFighter(fighter)}
@@ -193,8 +214,8 @@ export function CharacterShowcase() {
               {/* Character Image Placeholder */}
               <div className="relative aspect-square mb-4 rounded-lg bg-gradient-to-br from-[#001e3c] to-[#000a14] overflow-hidden border-2 border-[#ffd700]/30 group-hover:border-[#ffd700] transition-colors pixel-border">
                 <div className="absolute inset-0 flex items-center justify-center pixelated">
-                  <img 
-                    src={fighter.image} 
+                  <img
+                    src={fighter.image}
                     alt={fighter.name}
                     className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-110"
                   />
@@ -231,7 +252,7 @@ export function CharacterShowcase() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-sm"
               onClick={() => setSelectedFighter(null)}
             >
               <motion.div
@@ -241,8 +262,14 @@ export function CharacterShowcase() {
                 animate="visible"
                 exit="exit"
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-2xl glass rounded-2xl p-6 sm:p-8 neon-glow-box overflow-hidden"
-                style={{ perspective: 1000 }}
+                className="relative w-full max-w-md sm:max-w-2xl glass rounded-2xl p-1.5 sm:p-8 neon-glow-box overflow-hidden"
+                style={{
+                  perspective: 1000,
+                  maxHeight: "90dvh",
+                  height: "auto",
+                  overflowY: "auto",
+                  boxSizing: "border-box",
+                }}
               >
                 {/* CRT Overlay for Modal */}
                 <div className="absolute inset-0 pointer-events-none scanlines opacity-20" />
@@ -251,26 +278,28 @@ export function CharacterShowcase() {
                   variant="ghost"
                   size="icon"
                   onClick={() => setSelectedFighter(null)}
-                  className="absolute top-4 right-4 text-white/70 hover:text-white hover:bg-white/10"
+                  className="!block absolute top-2 right-2 sm:top-4 sm:right-4 text-white/90 hover:text-white hover:bg-white/10 z-50"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-8 h-8 sm:w-6 sm:h-6" />
                 </Button>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6">
                   {/* Left: Character Visual */}
                   <div className="space-y-4">
                     <div className="relative aspect-square rounded-xl bg-gradient-to-br from-[#001e3c] to-[#000a14] overflow-hidden border-2 border-[#ffd700]">
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <img 
-                          src={selectedFighter.actionImage || selectedFighter.image} 
+                        <img
+                          src={
+                            selectedFighter.actionImage || selectedFighter.image
+                          }
                           alt={selectedFighter.name}
-                          className="w-full h-full object-contain p-4"
+                          className="w-full h-full object-contain p-1 sm:p-4 max-h-40 sm:max-h-none"
                         />
                       </div>
                       <div className="absolute inset-0 scanlines opacity-30" />
                     </div>
                     <div className="text-center">
-                      <h3 className="text-2xl sm:text-3xl font-mono font-bold gradient-text">
+                      <h3 className="text-base sm:text-3xl font-mono font-bold gradient-text text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                         {selectedFighter.name}
                       </h3>
                     </div>
@@ -280,33 +309,49 @@ export function CharacterShowcase() {
                   <div className="space-y-6">
                     {/* Description */}
                     <div>
-                      <p className="text-white/80 font-mono text-sm leading-relaxed">
+                      <p className="text-white font-mono text-xs sm:text-sm leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                         {selectedFighter.description}
                       </p>
                     </div>
 
                     {/* Special Attack */}
                     <div className="glass rounded-lg p-4">
-                      <div className="flex items-center gap-2 text-[#ff8c00] font-mono font-bold mb-2">
-                        <Zap className="w-5 h-5" />
+                      <div className="flex items-center gap-2 text-orange-400 font-mono font-bold mb-2 text-xs sm:text-base">
+                        <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
                         SPEZIAL-ATTACKE
                       </div>
-                      <p className="text-[#ffd700] font-mono text-lg">
+                      <p className="text-yellow-400 font-mono text-base sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                         {selectedFighter.special}
                       </p>
                     </div>
 
                     {/* Stats */}
                     <div className="space-y-3">
-                      <StatBar label="STÄRKE" value={selectedFighter.stats.strength} icon={Zap} />
-                      <StatBar label="TEMPO" value={selectedFighter.stats.speed} icon={Gauge} />
-                      <StatBar label="DEFENSE" value={selectedFighter.stats.defense} icon={Shield} />
-                      <StatBar label="SPECIAL" value={selectedFighter.stats.special} icon={Sparkles} />
+                      <StatBar
+                        label="STÄRKE"
+                        value={selectedFighter.stats.strength}
+                        icon={Zap}
+                      />
+                      <StatBar
+                        label="TEMPO"
+                        value={selectedFighter.stats.speed}
+                        icon={Gauge}
+                      />
+                      <StatBar
+                        label="DEFENSE"
+                        value={selectedFighter.stats.defense}
+                        icon={Shield}
+                      />
+                      <StatBar
+                        label="SPECIAL"
+                        value={selectedFighter.stats.special}
+                        icon={Sparkles}
+                      />
                     </div>
 
                     {/* Backstory */}
                     <div className="pt-4 border-t border-[#ffd700]/20">
-                      <p className="text-white/60 font-mono text-xs leading-relaxed italic">
+                      <p className="text-white/80 font-mono text-[10px] sm:text-xs leading-relaxed italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                         {selectedFighter.backstory}
                       </p>
                     </div>
@@ -318,5 +363,5 @@ export function CharacterShowcase() {
         </AnimatePresence>
       </div>
     </section>
-  )
+  );
 }
