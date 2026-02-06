@@ -119,9 +119,9 @@ const fighters = [
     id: 6,
     name: "MR. Furz",
     image: "/images/fighters/1.png",
-    actionImage: "/images/fighters/6-dok-kick-removebg-preview.png",
+    actionImage: "/images/fighters/5-mr-ang-removebg-preview.png",
     description: "Ausgewogene Mischung aus Lautstärke und Intensität",
-    special: "Pümpel-Pracht-Schlag",
+    special: "Brust-Furz",
     stats: { strength: 70, speed: 75, defense: 70, special: 80 },
     backstory:
       "Der Allrounder unter den Kämpfern. Dok Stink hat durch jahrelanges Training eine perfekte Balance zwischen allen Fähigkeiten erreicht.",

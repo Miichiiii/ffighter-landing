@@ -69,7 +69,9 @@ export function Navigation() {
           <Button
             size="sm"
             className="hidden md:flex font-mono bg-gradient-to-r from-[#ff6500] to-[#ff8c00] hover:from-[#ff4500] hover:to-[#ff6500] text-black text-sm"
-            onClick={() => scrollToSection("#rewards")}
+            onClick={() =>
+              window.open("https://ko-fi.com/fartfighter", "_blank")
+            }
           >
             <Rocket className="w-4 h-4 mr-1" />
             UNTERSTÜTZEN
@@ -121,7 +123,9 @@ export function Navigation() {
                 <Button
                   size="lg"
                   className="font-mono bg-gradient-to-r from-[#ff6500] to-[#ff8c00] hover:from-[#ff4500] hover:to-[#ff6500] text-black mt-4"
-                  onClick={() => scrollToSection("#rewards")}
+                  onClick={() =>
+                    window.open("https://ko-fi.com/fartfighter", "_blank")
+                  }
                 >
                   <Rocket className="w-5 h-5 mr-2" />
                   JETZT UNTERSTÜTZEN

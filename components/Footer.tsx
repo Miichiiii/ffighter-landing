@@ -116,12 +116,7 @@ export function Footer() {
         >
           <pre className="text-[#ffd700]/30 text-[8px] sm:text-xs font-mono leading-none inline-block">
             {`
-███╗   ███╗██╗██╗ ██████╗██╗  ██╗██╗██╗██╗██╗██╗
-████╗ ████║██║██║██╔════╝██║  ██║██║██║██║██║██║
-██╔████╔██║██║██║██║     ███████║██║██║██║██║██║
-██║╚██╔╝██║██║██║██║     ██╔══██║██║██║██║██║╚═╝
-██║ ╚═╝ ██║██║██║╚██████╗██║  ██║██║██║██║██║██╗
-╚═╝     ╚═╝╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝ 
+// Fart Fighter - The Stinkiest Game Ever Made
 `}
           </pre>
           <p className="text-white/50 font-mono text-sm mt-4">
