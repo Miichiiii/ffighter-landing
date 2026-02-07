@@ -132,19 +132,19 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <a
-              href="#"
+              href="/impressum"
               className="text-white/30 hover:text-[#ffd700] font-mono text-xs transition-colors"
             >
               Impressum
             </a>
             <a
-              href="#"
+              href="/datenschutz"
               className="text-white/30 hover:text-[#ffd700] font-mono text-xs transition-colors"
             >
               Datenschutz
             </a>
             <a
-              href="#"
+              href="https://api.whatsapp.com/send?phone=4915678443874&text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20News%20zu%20Fart%20Fighter."
               className="text-white/30 hover:text-[#ffd700] font-mono text-xs transition-colors"
             >
               Kontakt

@@ -19,7 +19,7 @@ const tiers = [
     price: 5,
     icon: Wind,
     color: "from-gray-500 to-gray-600",
-    rewards: ["Digitaler Download", "Credits im Spiel"],
+    rewards: ["Dein Name in der „Wall of Wind“ (Credits im Spiel)","Early News Updates"],
     popular: false,
   },
   {
@@ -30,8 +30,8 @@ const tiers = [
     color: "from-[#cd7f32] to-[#8b4513]",
     rewards: [
       "Alles von Tier 1",
-      "Exclusive Character Skin",
-      "Digital Artbook",
+      "Teilnahme an Design-Entscheidungen",
+      "Digital Artbook"
     ],
     popular: false,
   },
@@ -43,8 +43,8 @@ const tiers = [
     color: "from-[#ffd700] to-[#ff8c00]",
     rewards: [
       "Alles von Tier 2",
-      "Soundtrack Download",
-      "Beta-Access",
+      
+      "Mitbestimmung bei Story/Quest-Building",
       "Dein Name als NPC im Spiel",
     ],
     popular: true,
@@ -74,7 +74,7 @@ const tiers = [
       "Design deinen eigenen Kämpfer",
       "Exclusive Physical Merch",
       "Lifetime Updates",
-      "Private Discord Channel",
+      
     ],
     popular: false,
   },
@@ -157,19 +157,7 @@ export function RewardsTiers() {
                 ))}
               </ul>
 
-              {/* CTA Button */}
-              <Button
-                onClick={() =>
-                  window.open("https://ko-fi.com/fartfighter", "_blank")
-                }
-                className={`w-full font-mono font-bold ${
-                  tier.popular
-                    ? "bg-gradient-to-r from-[#ffd700] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff4500] text-black"
-                    : "bg-white/10 hover:bg-white/20 text-white border border-[#ffd700]/30 hover:border-[#ffd700]"
-                }`}
-              >
-                AUSWÄHLEN
-              </Button>
+              
             </motion.div>
           ))}
         </div>
@@ -183,8 +171,7 @@ export function RewardsTiers() {
           className="mt-12 text-center"
         >
           <p className="text-white/50 font-mono text-sm mb-8">
-            Alle Preise inkl. MwSt. • Digitale Lieferung • Sofortiger
-            Beta-Zugang ab Tier 3
+            • Digitale Lieferung • 
           </p>
           
           {/* Ko-fi Embed */}
