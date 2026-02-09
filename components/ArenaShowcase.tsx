@@ -6,24 +6,24 @@ import { MapPin, Sparkles } from "lucide-react";
 const stages = [
   {
     id: 1,
-    name: "SCHUL ARENA",
+    name: "Klassenraum",
     image: "/images/stages/stage-1.png",
     description:
-      "Der klassische Kampfplatz",
+      "Der erste Kampfplatz",
   },
   {
     id: 2,
     name: "OLD CITY",
     image: "/images/stages/stage-2.png",
     description:
-      "Pulsierende Beats in der Cyberpunk-Metropole",
+      "Straßenkampf in einer leeren Stadt",
   },
   {
     id: 3,
     name: "BEACH INFERNO",
     image: "/images/stages/stage3.png",
     description:
-      "Die ultimative Kampfarena und epischer Atmosphäre",
+      "Die ultimative Kampfarena mit epischer Atmosphäre",
   },
   {
     id: 4,
@@ -34,16 +34,16 @@ const stages = [
   },
   {
     id: 5,
-    name: "FURZ TEMPEL",
+    name: "FURZ SAAL",
     image: "/sortiert/stage2.png",
     description:
-      "Ein futuristischer Tempel mit blinkenden Lichtern und furzender Musik",
+      "Ein alter Saal mit alten Gerüchen und mystischen Kräften",
   },
   {
     id: 6,
     name: "MYSTISCHES HAUS",
     image: "/sortiert/stage6.png",
-    description: "Eine geheimnisvolles Haus voller Magie und uralter Kräfte",
+    description: "Eine geheimnisvolles Haus voller Magie und uralter Macht",
   },
 ];
 

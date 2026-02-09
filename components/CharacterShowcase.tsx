@@ -110,10 +110,10 @@ const fighters = [
     image: "/images/fighters/5-derdr.png",
     actionImage: "/images/fighters/6-dok-duck-removebg-preview.png",
     description: "Unzerbrechlicher Gestank mit wissenschaftlicher Präzision",
-    special: "Eiserne-Därme-Defense",
+    special: "Furzpistole",
     stats: { strength: 80, speed: 45, defense: 100, special: 75 },
     backstory:
-      "Ein Wissenschaftler, der sich selbst zum ultimativen Verteidiger transformiert hat. Sein Gestank ist praktisch undurchdringlich.",
+      "Ein Wissenschaftler, der seine Waffe modifiziert hat. Sein Gestank ist praktisch undurchdringlich.",
   },
   {
     id: 6,
